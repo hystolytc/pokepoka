@@ -11,3 +11,7 @@ export const getLocalStorage = {
 export const setLocalStorage = {
   myPokemon: (data: IMyPokemon) => localStorage.setItem('my_pokemon', JSON.stringify(data)) 
 }
+
+export const removeLocalStorage = {
+  myPokemon: () => localStorage.removeItem('my_pokemon')
+}
