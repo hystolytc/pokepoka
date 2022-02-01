@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderBackButton /> test case Render <HeaderBackButton /> test case correctly 1`] = `
+<div>
+  <header
+    class="css-1vo74qe"
+  >
+    <div
+      class="css-2wlbqr"
+    >
+      <a
+        class="css-kujwy0"
+      >
+        Back
+      </a>
+      <span>
+        Title test
+      </span>
+    </div>
+  </header>
+</div>
+`;
