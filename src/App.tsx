@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { ApolloProvider } from '@apollo/client';
-import PokemonList from 'containers/Home';
+import { Routes, Route } from 'react-router-dom'
+import Home from 'containers/Home';
+import Detail from 'containers/Detail';
 import { useMyPokemon } from 'utils'
 import { IMyPokemon } from 'types/myPokemon'
 import { client } from 'services/graphql/apolloClient'
@@ -21,7 +23,10 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <PokemonContext.Provider value={{ myPokemon, addPokemon, removePokemon }}>
-        <PokemonList />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/:name' element={<Detail />} />
+        </Routes>
       </PokemonContext.Provider>
     </ApolloProvider>
   );
