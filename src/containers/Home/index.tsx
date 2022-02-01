@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import { useQuery } from '@apollo/client';
 import InfiniteScroll from 'react-infinite-scroller';
 import { PokemonContext } from 'App'
-import { Layout, Header, Logo, LoadingIndicator } from 'components'
-import { CardPokemon } from './components'
+import { Layout, LoadingIndicator } from 'components'
+import { CardPokemon, Header } from './components'
 import { GET_POKEMON } from 'services/graphql/query'
+import { Loading, Error } from 'components/Container'
+
+const IMAGE_BASE_URL = process.env.REACT_APP_POKEMON_IMAGE_BASE_URL
 
 const PokemonList = () => {
   const myPokemon = useContext(PokemonContext)
@@ -21,15 +24,27 @@ const PokemonList = () => {
     })
   }
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return (
+    <>
+      <Header href='/my-pokemon' />
+      <Layout>
+        <Loading />
+      </Layout>
+    </>
+  )
   
-  if (error) return <p>Error</p>
+  if (error) return (
+    <>
+      <Header href='/my-pokemon' />
+      <Layout>
+        <Error />
+      </Layout>
+    </>
+  )
 
   return (
     <>
-      <Header>
-        <Logo />
-      </Header>
+      <Header href='/my-pokemon' />
       <Layout>
         <InfiniteScroll
           pageStart={1}
@@ -41,8 +56,10 @@ const PokemonList = () => {
           {data.pokemons.map((v: any, i: number) => 
             <React.Fragment key={v.id}>
               <CardPokemon
+                img={`${IMAGE_BASE_URL}/${v.id}.png`}
                 name={v.name}
-                ownedTotal={myPokemon.myPokemon.pokemonTotal[v.id]}/>
+                ownedTotal={myPokemon.myPokemon.pokemonTotal[v.id]}
+                href={`/${v.name}`}/>
               { i < data.pokemons.length && i !== data.pokemons.length - 1 && <hr /> }
             </React.Fragment>
           )}

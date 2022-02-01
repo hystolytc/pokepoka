@@ -7,6 +7,7 @@ export const Container = styled.div`
   position: relative;
   align-items: center;
   text-transform: capitalize;
+  cursor: pointer;
 
   & span {
     flex: 1;
