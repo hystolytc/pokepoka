@@ -1,5 +1,5 @@
 export * from './Layout'
 export * from './Header'
-export * from './Logo'
 export * from './LoadingIndicator'
 export * from './Button'
+export * from './BottomSheet'

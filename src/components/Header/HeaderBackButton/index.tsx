@@ -3,12 +3,14 @@ import { Container, Link } from './style'
 
 interface Props {
   title?: string,
+  showMyPokemonLink?: boolean
   goBack?: () => void
   goMyPokemon?: () => void
 }
 
 export const HeaderBackButton: React.FC<Props> = ({
   title,
+  showMyPokemonLink,
   goBack,
   goMyPokemon
 }) => (
@@ -18,9 +20,11 @@ export const HeaderBackButton: React.FC<Props> = ({
         Back
       </Link>
       <span>{title}</span>
-      <Link onClick={goMyPokemon}>
-        My Pokemon
-      </Link>
+      {showMyPokemonLink &&
+        <Link onClick={goMyPokemon}>
+          My Pokemon
+        </Link>
+      }
     </Container>
   </Header>
 )

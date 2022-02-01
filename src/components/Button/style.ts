@@ -66,6 +66,7 @@ const base = css`
   border-radius: 4px;
   font-weight: 600;
   border: 0;
+  cursor: pointer;
 `
 
 export const ButtonStyled = styled.button<Props>`
