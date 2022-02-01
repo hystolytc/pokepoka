@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import produce from 'immer'
 import { IMyPokemon, IPokemon } from 'types/myPokemon'
-import { getLocalStorage, setLocalStorage } from 'utils'
+import { getLocalStorage, setLocalStorage, removeLocalStorage } from 'utils'
 
 export const useMyPokemon = () => {
   const [myPokemon, setMyPokemon] = useState<IMyPokemon>({ pokemons: [], pokemonTotal: {} })
@@ -39,6 +39,7 @@ export const useMyPokemon = () => {
       draft.pokemonTotal[pokemonId]--
     })
     setMyPokemon(nextState)
+    if (!nextState.pokemons.length) return removeLocalStorage.myPokemon()
     setLocalStorage.myPokemon(nextState)
   }
 
