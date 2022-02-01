@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import { Routes, Route } from 'react-router-dom'
 import Home from 'containers/Home';
 import Detail from 'containers/Detail';
+import MyPokemon from 'containers/MyPokemon'
 import { useMyPokemon } from 'utils'
 import { IMyPokemon } from 'types/myPokemon'
 import { client } from 'services/graphql/apolloClient'
@@ -26,6 +27,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/:name' element={<Detail />} />
+          <Route path='/my-pokemon' element={<MyPokemon />} />
         </Routes>
       </PokemonContext.Provider>
     </ApolloProvider>
