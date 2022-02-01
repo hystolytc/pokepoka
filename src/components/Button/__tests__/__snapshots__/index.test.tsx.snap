@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> test case Render <Button /> test case correctly 1`] = `
+<div>
+  <button
+    class="css-g2mrbi"
+  >
+    Button test
+  </button>
+</div>
+`;
+
+exports[`<ButtonStickyBottom /> test case Render <ButtonStickyBottom /> test case correctly 1`] = `<div />`;

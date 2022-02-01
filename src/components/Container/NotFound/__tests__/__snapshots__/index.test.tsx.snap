@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFound /> test case Render <NotFound /> test case correctly 1`] = `
+<div>
+  <div
+    class="css-zn5vyk"
+  >
+    <p
+      class="css-147x4p9"
+    >
+      404
+    </p>
+    <p
+      class="css-1b4xw04"
+    >
+      Woops, something went wrong!
+    </p>
+  </div>
+</div>
+`;

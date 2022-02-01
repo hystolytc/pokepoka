@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> test case Render <Layout /> test case correctly 1`] = `
+<div>
+  <div
+    class="css-kx8ax7"
+  >
+    <p>
+      Layout Test
+    </p>
+  </div>
+</div>
+`;

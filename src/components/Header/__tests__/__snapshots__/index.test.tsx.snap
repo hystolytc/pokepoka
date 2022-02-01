@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> test case Render <Header /> test case correctly 1`] = `
+<div>
+  <header
+    class="css-1vo74qe"
+  >
+    <p>
+      Header Test
+    </p>
+  </header>
+</div>
+`;
