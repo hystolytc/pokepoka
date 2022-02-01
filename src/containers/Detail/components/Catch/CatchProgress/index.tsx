@@ -9,7 +9,7 @@ interface Props {
 export const CatchProgress: React.FC<Props> = ({ onAfter=() => {} }) => {
   useEffect(() => {
     setTimeout(() => onAfter(), 3000)
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
   
   return (
     <Container>
