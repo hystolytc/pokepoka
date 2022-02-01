@@ -8,6 +8,7 @@ export const useMyPokemon = () => {
 
   const initializePokemon = () => {
     const data = getLocalStorage.myPokemon()
+    if (!data) return
     setMyPokemon(data)
   }
 
