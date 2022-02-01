@@ -3,7 +3,6 @@ import pokeball from 'assets/loader.png'
 import { Container, PokeballBounce, Span } from '../style'
 
 interface Props {
-  showing?: boolean
   onAfter?: () => void
 }
 

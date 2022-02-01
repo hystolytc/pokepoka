@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useQuery } from '@apollo/client'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Layout, ButtonStickyBottom } from 'components'
+import { Layout, ButtonStickyBottom, BottomSheet } from 'components'
 import { GET_POKEMON_DETAIL } from 'services/graphql/query'
-import { BottomSheet, CatchProgress, CatchFail, CatchSuccess } from './components'
+import { CatchProgress, CatchFail, CatchSuccess } from './components'
 import { PokemonContext } from 'App'
 import { IPokemon, ITypeMoves } from 'types/pokemonDetail'
+import { HeaderBackButton } from 'components/Header/HeaderBackButton'
+import { Loading, Error, NotFound } from 'components/Container'
 import { 
   Container,
   Image,
@@ -18,7 +20,6 @@ import {
   Subtitle,
   Box
 } from './style'
-import { HeaderBackButton } from 'components/Header/HeaderBackButton'
 
 const IMAGE_BASE_URL = process.env.REACT_APP_POKEMON_IMAGE_BASE_URL
 
@@ -82,8 +83,8 @@ const Detail = () => {
     setCurrStep(1)
   }
 
- const _onClearInput = () => {
-  setCustomPokemonName('')
+  const _onClearInput = () => {
+    setCustomPokemonName('')
   }
 
   const _onSavePokemon = () => {
@@ -99,20 +100,61 @@ const Detail = () => {
   }
 
   const _goBack = () => {
-    navigate('/')
+    navigate(-1)
   }
 
   const _onNavMyPokemon = () => {
     navigate('/my-pokemon')
   }
 
-  if (loading || !Object.keys(pokemon).length) return <p>Loading...</p>
-  if (error) return <p>error!</p>
+  if (!loading && data.pokemon.length === 0) return (
+    <>
+      <HeaderBackButton
+        title={pokemon.name}
+        showMyPokemonLink={true}
+        goBack={_goBack}
+        goMyPokemon={_onNavMyPokemon}
+      />
+      <Layout>
+        <NotFound />
+      </Layout>
+    </>
+  )
+
+
+  if (loading || !Object.keys(pokemon).length) return (
+    <>
+      <HeaderBackButton
+        title={pokemon.name}
+        showMyPokemonLink={true}
+        goBack={_goBack}
+        goMyPokemon={_onNavMyPokemon}
+      />
+      <Layout>
+        <Loading />
+      </Layout>
+    </>
+  )
+  
+  if (error) return (
+    <>
+      <HeaderBackButton
+        title={pokemon.name}
+        showMyPokemonLink={true}
+        goBack={_goBack}
+        goMyPokemon={_onNavMyPokemon}
+      />
+      <Layout>
+        <Error />
+      </Layout>
+    </>
+  )
 
   return (
     <>
       <HeaderBackButton
         title={pokemon.name}
+        showMyPokemonLink={true}
         goBack={_goBack}
         goMyPokemon={_onNavMyPokemon}
       />

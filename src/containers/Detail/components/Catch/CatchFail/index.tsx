@@ -3,11 +3,10 @@ import { Button } from 'components'
 import { Container, Pokeball, Span } from '../style'
 
 interface Props {
-  showing?: boolean
   onClick?: () => void
 }
 
-export const CatchFail: React.FC<Props> = ({ showing, onClick }) => {  
+export const CatchFail: React.FC<Props> = ({ onClick }) => {  
   return (
     <Container>
       <Pokeball src={pokeballBroken} alt='pokemon ball' width='50' height='50' />
