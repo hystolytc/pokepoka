@@ -9,3 +9,8 @@ body {
   position: relative;
   color: #4a4a4a;
 }
+
+hr {
+  border-top-width: 0;
+  border-bottom-width: 1px;
+}
