@@ -19,7 +19,7 @@ function App() {
 
   useEffect(() => {
     initializePokemon()
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <ApolloProvider client={client}>
