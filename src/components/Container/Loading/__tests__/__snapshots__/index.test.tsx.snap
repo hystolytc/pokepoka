@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading /> test case Render <Loading /> test case correctly 1`] = `
+<div>
+  <div
+    class="css-zn5vyk"
+  >
+    <img
+      alt="pokemon ball"
+      class="css-mh31mg"
+      height="100"
+      src="loader.png"
+      width="100"
+    />
+    <p
+      class="css-1b4xw04"
+    >
+      Loading...
+    </p>
+  </div>
+</div>
+`;
