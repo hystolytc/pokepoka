@@ -11,7 +11,7 @@ export const CatchFail: React.FC<Props> = ({ showing, onClick }) => {
   return (
     <Container>
       <Pokeball src={pokeballBroken} alt='pokemon ball' width='50' height='50' />
-      <Span>Failed to catch the pokemon</Span>
+      <Span>Woops, you almost catch the pokemon</Span>
       <Button
         variant='secondary'
         size='sm'
